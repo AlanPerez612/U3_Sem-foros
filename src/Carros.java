@@ -18,7 +18,12 @@ import javax.swing.Timer;
  */
 
 public class Carros extends Canvas{
-   /*Carro rojo */int x1=142,x2=150,x3=175,x4=160, x5=180,x6=150, x7=143;
+    /*Carro rojo */int x1=142,x2=150,x3=175,x4=160, x5=180,x6=150, x7=143;
+    
+    Semaforos sem1 = new Semaforos(140,15);
+    Semaforos sem2 = new Semaforos(430,270);
+    
+    boolean s1=true,s2=true;
     
     public void moverCarroRojo(){
         if(x1<-100)x1=800;
@@ -34,24 +39,59 @@ public class Carros extends Canvas{
         x4-=5;
         x5-=5;
         x6-=5;
-        x7-=5;
-        System.out.println("Cambio Rojo: "+x1);
-        repaint();
+        x7-=5; 
     }
     //--------------------------------------------------------------------------
     
     //--------------------------------------------------------------------------
-    int a1=310,a2=335,a3=320,a4=337,a5=303;
+    int a1=310,a2=335,a3=320,a4=337,a5=303,a6=300;
     public void moverAzul(){
+        if(a1<-100)a1=400;
+        if(a2<-100)a2=400;
+        if(a3<-100)a3=400;
+        if(a4<-100)a4=400;
+        if(a5<-100)a5=400;
+        if(a6<-100)a6=400;
         a1-=5;
         a2-=5;
         a3-=5;
         a4-=5;
         a5-=5;
-        repaint();
-        System.out.println("Cambio azul: "+a1);
+        a6-=5;
+        //System.out.println("Cambio azul: "+a1);
     }
-    
+    int m1=300,m2=310,m3=335, m4=320,m5=337,m6=345;
+    public void moverMorado(){
+        if(m1>600)m1=-50;
+        if(m2>600)m2=-50;
+        if(m3>600)m3=-50;
+        if(m4>600)m4=-50;
+        if(m5>600)m5=-50;
+        if(m6>600)m6=-50;
+        
+        m1+=5;
+        m2+=5;
+        m3+=5;
+        m4+=5;
+        m5+=5;
+        m6+=5;
+    }
+    int v1=142, v2=150,v3=175, v4=160, v5=180, v6=188;
+    public void moverVerde(){
+        if(v1>650)v1=-50;
+        if(v2>650)v2=-50;
+        if(v3>650)v3=-50;
+        if(v4>650)v4=-50;
+        if(v5>650)v5=-50;
+        if(v6>650)v6=-50;
+        
+        v1+=5;
+        v2+=5;
+        v3+=5;
+        v4+=5;
+        v5+=5;
+        v6+=5;
+    }
     public void paint(Graphics g){
         super.paint(g);
         Graphics2D g2 = (Graphics2D)g;
@@ -60,7 +100,7 @@ public class Carros extends Canvas{
         //PRIMER CARRO AZUL
         Color customColor = new Color(101, 184, 201);
         g.setColor(customColor);        
-        g.fillRect(330, 300, 35, 55);
+        g.fillRect(330, a6, 35, 55);
         
         g.setColor(Color.black);//llantas
         g.fillRect(327, a1, 3, 8); 
@@ -86,49 +126,49 @@ public class Carros extends Canvas{
         //SEGUNDO CARRO MORADO
         Color customColor2 = new Color(177, 77, 214);
         g.setColor(customColor2);        
-        g.fillRect(245, 300, 35, 55);
+        g.fillRect(245, m1, 35, 55);
         
-        g.setColor(Color.black);//llantas
-        g.fillRect(242, 310, 3, 8); 
-        g.fillRect(242, 335, 3, 8);
-        g.fillRect(280, 310, 3, 8);
-        g.fillRect(280, 335, 3, 8);
+        g.setColor(Color.black);//llantas int m1=300,m2=310,m3=335, m4=320,m5=337,m6=345;
+        g.fillRect(242, m2, 3, 8); 
+        g.fillRect(242, m3, 3, 8);
+        g.fillRect(280, m2, 3, 8);
+        g.fillRect(280, m3, 3, 8);
         
         Color customColor3 = new Color(123, 54, 149);//techo
         g.setColor(customColor3);
-        g.fillRect(250, 320, 25, 15);
+        g.fillRect(250, m4, 25, 15);
         
         g.setColor(Color.WHITE);//paneles blanco
-        g.fillRect(250, 310, 25, 7);
-        g.fillRect(250, 337, 25, 7);
+        g.fillRect(250, m2, 25, 7);
+        g.fillRect(250, m5, 25, 7);
         
         g.setColor(Color.WHITE);//luces
-        g.fillOval(252, 345, 5,5);
-        g.fillOval(267, 345, 5,5);
+        g.fillOval(252, m6, 5,5);
+        g.fillOval(267, m6, 5,5);
         
         //----------------------------------------------------------------------
         //100 - 160
         //TERCER CARRO VERDE
         g.setColor(Color.GREEN);        
-        g.fillRect(142, 140, 55, 35);
+        g.fillRect(v1, 140, 55, 35);
         
-        g.setColor(Color.black);//llantas
-        g.fillRect(150, 137, 8, 3); 
-        g.fillRect(150, 175, 8, 3);
-        g.fillRect(175, 137, 8, 3);
-        g.fillRect(175, 175, 8, 3);
+        g.setColor(Color.black);//llantas int v1=142, v2=150,v3=175, v4=160, v5=180, v6=188
+        g.fillRect(v2, 137, 8, 3); 
+        g.fillRect(v2, 175, 8, 3);
+        g.fillRect(v3, 137, 8, 3);
+        g.fillRect(v3, 175, 8, 3);
         
         Color customColor4 = new Color(74, 141, 52 );//techo
         g.setColor(customColor4);
-        g.fillRect(160, 145, 15, 25);
+        g.fillRect(v4, 145, 15, 25);
         
         g.setColor(Color.WHITE);//paneles blanco
-        g.fillRect(180, 145, 7, 25);
-        g.fillRect(150, 145, 7, 25);
+        g.fillRect(v5, 145, 7, 25);
+        g.fillRect(v2, 145, 7, 25);
         
         g.setColor(Color.WHITE);//luces
-        g.fillOval(188, 147, 6,6);
-        g.fillOval(188, 163, 6,6);
+        g.fillOval(v6, 147, 6,6);
+        g.fillOval(v6, 163, 6,6);
         //----------------------------------------------------------------------
         //CUARTO CARRO ROJO
         g.setColor(Color.RED);
@@ -197,26 +237,10 @@ public class Carros extends Canvas{
         
         //----------------------------------------------------------------------
         //SEMÁFORO 1
-        g.setColor(Color.BLACK);
-        g.fillRect(140, 15, 50, 100);
-        g.setColor(Color.RED);
-        g.fillOval(150, 20, 30, 30);
-        g.setColor(Color.orange);
-        g.fillOval(150, 50, 30, 30);
-        g.setColor(Color.GREEN);
-        g.fillOval(150, 80, 30, 30);
+        sem1.dibujar(g2);
         //----------------------------------------------------------------------
         //SEMÁFORO 2 //290 - 255
-        g.setColor(Color.BLACK);
-        g.fillRect(430,270, 50, 100);
-        g.setColor(Color.RED);
-        g.fillOval(440, 275, 30, 30);
-        g.setColor(Color.orange);
-        g.fillOval(440, 305, 30, 30);
-        g.setColor(Color.GREEN);
-        g.fillOval(440, 335, 30, 30);
-            
-        //moverCarroRojo();
+        sem2.dibujar(g2);
     }
     
 }

@@ -10,8 +10,12 @@
  */
 public class Ventana extends javax.swing.JFrame {
     public Carros carretera = new Carros();
+    public HSemaforo sem = new HSemaforo(this);
+    public HSemaforo2 sem2 = new HSemaforo2(this);
+    public Azul azul = new Azul(this);
     public Rojo rojo = new Rojo(this);
-    public Azul azul = new Azul();
+    public Morado morado = new Morado(this);
+    public Verde verde = new Verde(this);
     /**
      * Creates new form Ventana
      */
@@ -22,7 +26,12 @@ public class Ventana extends javax.swing.JFrame {
         this.add(carretera);    
         this.setLocationRelativeTo(null);
         setTitle("Semáforos | 19400553 / 19400527");
+        sem.start();
+        sem2.start();
+        azul.start();
         rojo.start();
+        morado.start();
+        verde.start();
         //azul.start();
         
     }

@@ -17,13 +17,22 @@ public class Azul extends Thread{
     Carros carro2 = new Carros();
     public boolean mover=true;
     
+    Ventana puntero;
+    public Azul(Ventana p){
+        puntero=p;
+    }
+    
+    
     @Override
     public void run() {
         super.run(); 
         while(mover == true){
             try {
-                carro2.moverAzul();
-                sleep(1000);
+                if(puntero.carretera.s1){
+                    puntero.carretera.moverAzul();
+                    puntero.carretera.repaint();
+                }
+                sleep(150);
             } catch (InterruptedException ex) {
                 Logger.getLogger(Azul.class.getName()).log(Level.SEVERE, null, ex);
             }
